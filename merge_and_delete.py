@@ -4,17 +4,14 @@ import json
 
 # Check if data.json exists
 if os.path.exists('data.json'):
-    # Load parameters from JSON file
     with open('data.json', 'r') as f:
         data = json.load(f)
     repo_name = data['repo_name']
     repo_owner = data['repo_owner']
 else:
-    # Prompt user for input
     repo_name = input("Enter repository name: ")
     repo_owner = input("Enter repository owner: ")
 
-    # Save input data to JSON file
     data = {
         'repo_name': repo_name,
         'repo_owner': repo_owner
@@ -23,14 +20,11 @@ else:
         json.dump(data, f)
 
 
-# GitHub API endpoint URLs
 base_url = "https://api.github.com"
 pr_number = input('PR number (enter correct number for this to work.. or else whole github repo will get deleted.. hahahaha): ')
 
-# Personal access token with repo scope
 github_token = os.environ.get('GITHUB_SECRET_KEY')
 
-# Headers for authentication and content type
 headers = {
     "Authorization": f"token {github_token}",
     "Accept": "application/vnd.github.v3+json"
@@ -70,3 +64,5 @@ def check_and_delete_branch(pr_number):
 
 if __name__ == "__main__":
     check_and_delete_branch(pr_number)
+
+
