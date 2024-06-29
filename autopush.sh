@@ -32,10 +32,9 @@ fi
 echo "About to add files, commit, and push to GitHub repo"
 read -p "Do you confirm? (Y/n) " confirmation
 
-git checkout -b "$branch"
-
 
 if [[ "$confirmation" = "Y" || "$confirmation" = "y" || -z "$confirmation" ]]; then
+    git checkout -b "$branch"
     read -p "Enter the message for commit: " message
     git add .
     git commit -m "$message"
