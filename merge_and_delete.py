@@ -56,7 +56,7 @@ def delete_branch(branch_name):
 
 def check_and_delete_branch(pr_number):
     # Get pull request details
-    url = f"{base_url}/repos/{repo_owner}/{repo_name}/pulls/{pr_number}"
+    url = f"{base_url}/repos/{repo_owner}/{repo_name}/pull/{pr_number}"
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
         pr_data = response.json()
