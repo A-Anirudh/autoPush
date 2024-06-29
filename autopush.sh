@@ -22,6 +22,7 @@ if git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
         git push origin --delete "$branch"
         echo "Branch '$branch' deleted successfully from remote repository."
     else
+        python3 merge_and_delete.py
         echo "Branch '$branch' is not yet merged into main. No action taken. Cannot proceed without deleting that branch. Please merge it with main branch!"
         exit 1
     fi
