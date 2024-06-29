@@ -14,6 +14,21 @@ if [ "$branch" = "main" ]; then
     echo "Cannot directly push to main branch. Please create a new branch to push"
     exit 1
 fi
+
+if git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
+    git fetch origin
+
+    if git branch --merged main | grep "$branch"; then
+        git push origin --delete "$branch"
+        echo "Branch '$branch' deleted successfully from remote repository."
+    else
+        echo "Branch '$branch' is not yet merged into main. No action taken. Cannot proceed without deleting that branch. Please merge it with main branch!"
+        exit 1
+    fi
+
+fi
+
+
 echo "About to add files, commit, and push to GitHub repo"
 read -p "Do you confirm? (Y/n) " confirmation
 
