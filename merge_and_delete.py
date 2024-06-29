@@ -2,8 +2,6 @@ import requests
 import os
 import json
 
-## welcome guys to this file
-
 # Check if data.json exists
 if os.path.exists('data.json'):
     with open('data.json', 'r') as f:
