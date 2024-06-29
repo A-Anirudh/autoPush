@@ -41,6 +41,7 @@ if [[ "$confirmation" = "Y" || "$confirmation" = "y" || -z "$confirmation" ]]; t
     git commit -m "$message"
     git pull origin main --rebase
     git push -u origin "$branch"
+    git branch -d "$branch"
 
     echo "Pushed successfully"
 else
