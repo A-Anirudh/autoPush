@@ -1,14 +1,13 @@
 # Password Manager
 
-A simple and secure password manager written in Bash.
+A simple password manager written in Bash.
 
 ## Features
 - Add and view passwords securely
-- Encrypts passwords using `gpg`
+- Masks password input
 
 ## Requirements
 - Bash
-- GPG (GNU Privacy Guard)
 
 ## Installation
 1. Clone the repository:
