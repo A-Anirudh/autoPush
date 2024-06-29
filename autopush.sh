@@ -18,12 +18,6 @@ fi
 if git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
     git fetch origin
 
-    # if git branch --merged main | grep "$branch"; then
-    #     git push origin --delete "$branch"
-    #     echo "Branch '$branch' deleted successfully from remote repository."
-    # else
-        
-    # fi
     python3 merge_and_delete.py
 
 fi
