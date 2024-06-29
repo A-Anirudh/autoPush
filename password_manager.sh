@@ -4,7 +4,7 @@
 # TItle: Password Manager
 # DEsc: YOu can add and view passwords
 # Date: June 29 2024
-#######################
+#####################
 
 set -e
 set -o pipefail
