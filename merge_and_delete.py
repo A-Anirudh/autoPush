@@ -2,6 +2,8 @@ import requests
 import os
 import json
 
+## welcome guys to this file
+
 # Check if data.json exists
 if os.path.exists('data.json'):
     with open('data.json', 'r') as f:
@@ -32,12 +34,12 @@ headers = {
 
 def delete_branch(branch_name):
     url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/branches/{branch_name}"
-    response = requests.get(url, auth=HTTPBasicAuth(repo_owner, github_token))
+    response = requests.get(url, auth=requests.auth.HTTPBasicAuth(repo_owner, github_token))
 
     if response.status_code == 200:
-        print(f"Branch '{branch}' exists in the repository '{repo_owner}/{repo_name}'.")
+        print(f"Branch '{branch_name}' exists in the repository '{repo_owner}/{repo_name}'.")
     elif response.status_code == 404:
-        print(f"Branch '{branch}' does not exist in the repository '{repo_owner}/{repo_name}'.")
+        print(f"Branch '{branch_name}' does not exist in the repository '{repo_owner}/{repo_name}'.")
         return False
 
     # Delete branch on GitHub
