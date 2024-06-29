@@ -43,8 +43,11 @@ if [[ "$confirmation" = "Y" || "$confirmation" = "y" || -z "$confirmation" ]]; t
     git push -u origin "$branch"
     git checkout main
     git branch -d "$branch"
+    echo "local branch deleted"
 
     echo "Pushed successfully"
+
+    echo "Do not forget to delete branch on remote server after merging with main branch!"
 else
     echo "Not pushing or committing anything. Exit"
 fi

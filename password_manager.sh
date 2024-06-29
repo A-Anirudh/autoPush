@@ -16,7 +16,7 @@ if [ ! -e "$file" ]; then
     touch "$file"
 fi
 
-echo "Hello there.. welcome to password manager"
+# echo "Hello there.. welcome to password manager"
 
 
 add_password() {
