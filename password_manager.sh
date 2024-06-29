@@ -38,7 +38,7 @@ get_password(){
 	if [ -z "$password" ]; then
 		echo "Password for $website not found."
 	else
-    		echo "Password for $website: $password"
+    	echo "Password for $website: $password"
 	fi
 }
 
