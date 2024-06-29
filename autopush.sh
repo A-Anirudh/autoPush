@@ -2,7 +2,7 @@
 # Automatically adds all the files, commits them and pushes them to github repo. You need to initially configure it once
 # Author: Anirudh
 # Date: Jun 30 2024
-################
+#################
 
 set -e
 set -o pipefail
