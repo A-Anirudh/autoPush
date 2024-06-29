@@ -18,13 +18,13 @@ fi
 if git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
     git fetch origin
 
-    if git branch --merged main | grep "$branch"; then
-        git push origin --delete "$branch"
-        echo "Branch '$branch' deleted successfully from remote repository."
-    else
-        python3 merge_and_delete.py
-        echo "Branch '$branch' is not yet merged into main. No action taken. Cannot proceed without deleting that branch. Please merge it with main branch!"
-    fi
+    # if git branch --merged main | grep "$branch"; then
+    #     git push origin --delete "$branch"
+    #     echo "Branch '$branch' deleted successfully from remote repository."
+    # else
+        
+    # fi
+    python3 merge_and_delete.py
 
 fi
 
@@ -47,7 +47,6 @@ if [[ "$confirmation" = "Y" || "$confirmation" = "y" || -z "$confirmation" ]]; t
 
     echo "Pushed successfully"
 
-    echo "Do not forget to delete branch on remote server after merging with main branch!"
 else
     echo "Not pushing or committing anything. Exit"
 fi
