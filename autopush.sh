@@ -15,6 +15,7 @@ if [[ "$confirmation" = "Y" || "$confirmation" = "y" || -z "$confirmation" ]]; t
     read -p "Enter the message for commit: " message
     git add .
     git commit -m "$message"
+    git pull origin main --rebase
     git push
 
     echo "Pushed successfully"
