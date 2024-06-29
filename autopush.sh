@@ -10,10 +10,14 @@ set -o pipefail
 confirmation="Y"
 
 read -p "Enter the branch you want to push to: " branch
+if [ "$branch" = "main" ]; then
+    echo "Cannot directly push to main branch. Please create a new branch to push"
+    exit 1
+fi
 echo "About to add files, commit, and push to GitHub repo"
 read -p "Do you confirm? (Y/n) " confirmation
 
-git checkout "$branch"
+git checkout -b "$branch"
 
 
 if [[ "$confirmation" = "Y" || "$confirmation" = "y" || -z "$confirmation" ]]; then
